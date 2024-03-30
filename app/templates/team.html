@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +6,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Volti - Book Your Eco-Friendly Ride</title>
-  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+  <link rel="shortcut icon" href="{% static 'images/favicon.svg' %}" type="image/x-icon" />
 
-  <link rel="stylesheet" href="./assets/font/font.css" />
-  <link rel="stylesheet" href="./assets/styles/style.css" />
-  <link rel="stylesheet" href="./assets/styles/service.css" />
+  <link rel="stylesheet" href="{% static 'styles/font.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/service.css' %}" />
+  <link rel="stylesheet" href="{% static 'styles/team.css' %}" />
 </head>
 
 <body>
@@ -18,9 +20,9 @@
   -->
 
   <div class="preload-box" data-preloader>
-    <img src="./assets/images/loading.svg" width="45" height="45" alt="loading" />
+    <img src="{% static 'images/loading.svg' %}" width="45" height="45" alt="loading" />
 
-    <img src="./assets/images/loading-circle.svg" width="75" height="75" alt="loading" class="preload-circle" />
+    <img src="{% static 'images/loading-circle.svg' %}" width="75" height="75" alt="loading" class="preload-circle" />
   </div>
 
   <!-- 
@@ -30,29 +32,29 @@
   <header class="header" data-header>
     <div class="container">
       <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="160" height="50" alt="volti home" />
+        <img src="{% static 'images/logo.svg' %}" width="160" height="50" alt="volti home" />
       </a>
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
           <li class="navbar-item">
-            <a href="./index.html" class="navbar-link">Home</a>
+            <a href="{% url 'index' %}" class="navbar-link">Home</a>
           </li>
 
           <li class="navbar-item">
-            <a href="./service.html" class="navbar-link">Services</a>
+            <a href="{% url 'service' %}" class="navbar-link">Services</a>
           </li>
 
           <li class="navbar-item">
-            <a href="./galery.html" class="navbar-link">Gallery</a>
+            <a href="{% url 'gallery' %}" class="navbar-link">Gallery</a>
           </li>
 
           <li class="navbar-item">
-            <a href="./about.html" class="navbar-link">About</a>
+            <a href="{% url 'about' %}" class="navbar-link">About</a>
           </li>
 
           <li class="navbar-item">
-            <a href="./contacts.html" class="navbar-link">Contact Us</a>
+            <a href="{% url 'contactus' %}" class="navbar-link">Contact Us</a>
           </li>
         </ul>
       </nav>
@@ -83,50 +85,58 @@
       <p class="section-subtitle has-before" id="service-label" data-reveal>What We Do!</p>
 
       <h2 class="h2 section-title" data-reveal>
-        Service
+        Our Team
       </h2>
     </div>
 
     <section class="card__container">
-      <div class="card__bx"
-        style="--clr: hsl(86, 54%, 51%);  background: linear-gradient(to bottom right, rgb(64 29 76 / 0%), rgb(41 30 30 / 70%)), url(./assets/images/blog-1.jpg);">
-        <div class="card__data">
-          <div class="card__icon"
-            style="background-image: url('./assets/images/blog-1.jpg'); background-position: center; background-size: cover;">
-            <i class="fa-solid fa-paintbrush"></i>
+      <div class="wrapper">
+        <div class="team">
+          <div class="team_member">
+            <div class="team_img">
+              <img src="{% static 'images/05.png' %}" alt="Team_image">
+            </div>
+            <h3>Paul Doe</h3>
+            <p class="role">CEO</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Est quaerat tempora, voluptatum quas facere dolorum aut cumque nihil nulla harum nemo
+              distinctio quam blanditiis dignissimos.</p>
+            <ul class="social social-list">
+              <li><a href="" class="fa fa-facebook social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-twitter social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-instagram social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-linkedin social-link" aria-hidden="true"></a></li>
+            </ul>
           </div>
-          <div class="card__content">
-            <h3>Authorized Service Centers</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <a href="#" class="btn btn-primary">Read More</a>
+          <div class="team_member">
+            <div class="team_img">
+              <img src="{% static 'images/04.png' %}" alt="Team_image">
+            </div>
+            <h3>Alex Wood</h3>
+            <p class="role">Director</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere
+              dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+            <ul class="social social-list">
+              <li><a href="" class="fa fa-facebook social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-twitter social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-instagram social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-linkedin social-link" aria-hidden="true"></a></li>
+            </ul>
           </div>
-        </div>
-      </div>
-      <div class="card__bx"
-        style="--clr:hsl(86, 54%, 51%); background: linear-gradient(to bottom right, rgb(64 29 76 / 0%), rgb(41 30 30 / 70%)), url(./assets/images/blog-2.jpg);">
-        <div class="card__data">
-          <div class="card__icon"
-            style="background-image: url('./assets/images/blog-2.jpg'); background-position: center; background-size: cover;">
-            <i class="fa-solid fa-code"></i>
-          </div>
-          <div class="card__content">
-            <h3>Appointment Booking</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-        </div>
-      </div>
-      <div class="card__bx"
-        style="--clr: hsl(86, 54%, 51%); background: linear-gradient(to bottom right, rgb(64 29 76 / 0%), rgb(41 30 30 / 70%)), url(./assets/images/blog-3.jpg);;">
-        <div class="card__data">
-          <div class="card__icon"
-            style="background-image: url('./assets/images/blog-3.jpg'); background-position: center; background-size: cover;">
-            <i class="fa-brands fa-searchengin"></i>
-          </div>
-          <div class="card__content">
-            <h3>Technical Support</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <a href="#" class="btn btn-primary">Read More</a>
+          <div class="team_member">
+            <div class="team_img">
+              <img src="{% static 'images/03.png' %}" alt="Team_image">
+            </div>
+            <h3>Rosie Meg</h3>
+            <p class="role">Support Lead</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est quaerat tempora, voluptatum quas facere
+              dolorum aut cumque nihil nulla harum nemo distinctio quam blanditiis dignissimos.</p>
+            <ul class="social social-list">
+              <li><a href="" class="fa fa-facebook social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-twitter social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-instagram social-link" aria-hidden="true"></a></li>
+              <li><a href="" class="fa fa-linkedin social-link" aria-hidden="true"></a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -183,7 +193,7 @@
           </li>
         </ul>
       </div>
-    </section>
+    </section> 
 
   </main>
 
@@ -233,27 +243,27 @@
           </li>
 
           <li>
-            <a href="about.html" class="footer-link">About Us</a>
+            <a href="{% url 'about' %}" class="footer-link">About Us</a>
           </li>
 
           <li>
-            <a href="projects.html" class="footer-link">Our Projects</a>
+            <a href="{% url 'projects' %}" class="footer-link">Our Projects</a>
           </li>
 
           <li>
-            <a href="team.html" class="footer-link">Meet Our Team</a>
+            <a href="{% url 'team' %}" class="footer-link">Meet Our Team</a>
           </li>
 
           <li>
-            <a href="news.html" class="footer-link">News & Media</a>
+            <a href="{% url 'news' %}" class="footer-link">News & Media</a>
           </li>
 
           <li>
-            <a href="contacts.html" class="footer-link">Contact Us</a>
+            <a href="{% url 'contactus' %}" class="footer-link">Contact Us</a>
           </li>
 
           <li>
-            <a href="carieers.html" class="footer-link">Careers</a>
+            <a href="{% url 'carieers' %}" class="footer-link">Careers</a>
           </li>
         </ul>
 
@@ -301,7 +311,7 @@
           </div>
         </div>
 
-        <img src="./assets/images/footer-logo.svg" width="100" height="63" loading="lazy" alt="Volti home" />
+        <img src="{% static 'images/footer-logo.svg' %}" width="100" height="63" loading="lazy" alt="Volti home" />
 
         <ul class="social-list">
           <li>
@@ -340,13 +350,14 @@
     <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
   </a>
 
-  <script src="./assets/scripts/main.js"></script>
+  <script src="{% static 'scripts/main.js' %}"></script>
 
   <!-- 
     - ionicon link
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="https://kit.fontawesome.com/d5c98c56f9.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
