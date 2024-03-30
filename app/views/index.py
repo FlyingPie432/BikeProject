@@ -1,7 +1,11 @@
 import http.client
-from django.http import HttpResponse
+
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from app.models import Post
+from django.urls import reverse
 
 
 def index(request):
@@ -63,3 +67,22 @@ def carierdes(request):
 
 def newsDsc(request):
     return render(request, 'newsDsc.html')
+
+
+def send_email(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        send_mail(
+            subject='Message from Volti Website',
+            message=f'Name: {name}\nEmail: {email}\nMessage: {message}',
+            from_email=email,
+            recipient_list=['your_email@example.com'],
+            fail_silently=False,
+        )
+        messages.success(request, 'Email successfully sent!')
+        return HttpResponseRedirect(reverse('index'))
+
+    return render(request, 'contacts.html')

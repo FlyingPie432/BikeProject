@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <!-- 
+    <!--
     - #PRELOADER
   -->
 
@@ -26,7 +26,7 @@
         <img src="{% static 'images/loading-circle.svg' %}" width="75" height="75" alt="loading" class="preload-circle" />
     </div>
 
-    <!-- 
+    <!--
     - #HEADER
   -->
 
@@ -124,7 +124,7 @@
 
         </section>
 
-        <!-- 
+        <!--
     - #CONTACT
   -->
 
@@ -179,7 +179,7 @@
     </main>
 
 
-    <!-- 
+    <!--
     - #FOOTER
   -->
 
@@ -324,8 +324,14 @@
             </div>
         </div>
     </footer>
-
-    <!-- 
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <!--
     - #BACK TO TOP
   -->
 
@@ -335,7 +341,7 @@
 
     <script src="{% static 'scripts/main.js' %}"></script>
 
-    <!-- 
+    <!--
     - ionicon link
   -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
