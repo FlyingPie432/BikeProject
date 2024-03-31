@@ -2,7 +2,7 @@ import http.client
 
 from django.contrib import messages
 from django.core.mail import send_mail
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from app.models import Post
 from django.urls import reverse

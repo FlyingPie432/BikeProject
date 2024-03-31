@@ -123,4 +123,8 @@ PHONE_NUMBERS = {
 
 }
 
-ALLOWED_HOSTS = ['yourdomain.com', '14b8-5-197-203-11.ngrok-free.app']
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
