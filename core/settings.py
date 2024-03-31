@@ -117,10 +117,10 @@ EMAIL_HOST_USER = 'your_email@example.com'
 EMAIL_HOST_PASSWORD = 'your_password'
 DEFAULT_FROM_EMAIL = 'your_email@example.com'
 
-PHONE_NUMBERS = {
-    'hotline': '+1234567890',
-    'office': '+9876543210',
-
+CONTACT_INFORMATION = {
+    'hot_line': '+(123) 1234-567-8901',
+    'email_address': 'info@example.com',
+    'location': '123 Street, City, Country'
 }
 
 try:
