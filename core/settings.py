@@ -13,9 +13,7 @@ SECRET_KEY = 'django-insecure-=9yny#z75_fc_$6n*b+1x&txk@g448qa293@9wwrr-qs_q8r9p
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -119,12 +117,7 @@ DEFAULT_FROM_EMAIL = 'your_email@example.com'
 
 CONTACT_INFORMATION = {
     'hot_line': '+(123) 1234-567-8901',
-    'email_address': 'info@example.com',
+    'email-adress': 'info@example.com',
     'location': '123 Street, City, Country'
 }
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
 

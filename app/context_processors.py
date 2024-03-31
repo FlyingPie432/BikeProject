@@ -6,4 +6,10 @@ from django.shortcuts import render
 
 def contact(request):
     contact_information = settings.CONTACT_INFORMATION
-    return render(request, 'contacts.html', {'contact_information': contact_information})
+
+    context = {
+        'contact_information': contact_information
+    }
+
+    # Return context
+    return context
