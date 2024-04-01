@@ -11,5 +11,4 @@ def contact(request):
         'contact_information': contact_information
     }
 
-    # Return context
     return context

@@ -117,7 +117,7 @@ DEFAULT_FROM_EMAIL = 'your_email@example.com'
 
 CONTACT_INFORMATION = {
     'hot_line': '+(123) 1234-567-8901',
-    'email-adress': 'info@example.com',
-    'location': '123 Street, City, Country'
+    'email_address': 'voltiinfo@gmail.com',
+    'location': '101 Avenue, S.E. USA'
 }
 

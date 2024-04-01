@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from app.models import Post
+from app.models import Post, News
 from django.urls import reverse
 
 
@@ -50,7 +50,8 @@ def team(request):
 
 
 def news(request):
-    return render(request, 'news.html')
+    news_posts = News.objects.all()
+    return render(request, 'news.html', {'news_posts': news_posts})
 
 
 def carieers(request):
