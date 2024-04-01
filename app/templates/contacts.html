@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="{% static 'styles/service.css' %}"/>
     <link rel="stylesheet" href="{% static 'styles/about.css' %}"/>
     <link rel="stylesheet" href="{% static 'styles/contact.css' %}"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {% if messages %}
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                {% for message in messages %}
+                    Swal.fire({
+                        icon: '{{ message.tags }}',
+                        title: '{{ message }}',
+                        showConfirmButton: true,
+                    });
+                {% endfor %}
+            });
+        </script>
+    {% endif %}
 </head>
 
 <body>
@@ -323,13 +337,6 @@
         </div>
     </div>
 </footer>
-{% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
 <!--
 - #BACK TO TOP
 -->
