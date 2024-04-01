@@ -27,6 +27,27 @@ def blog(request):
 
 
 def contactus(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        try:
+            send_mail(
+                subject='Message from Volti Website',
+                message=f'Name: {name}\nEmail: {email}\nMessage: {message}',
+                from_email=email,
+                recipient_list=['your_email@example.com'],
+                fail_silently=False,
+            )
+            messages.success(request, 'Email successfully sent!')
+        except ValidationError as e:
+            messages.error(request, 'Email validation error occurred. Please try again.')
+        except Exception as e:
+            messages.error(request, 'An error occurred while sending the email. Please try again later.')
+
+        return HttpResponseRedirect(reverse('contactus'))
+
     return render(request, 'contacts.html')
 
 
@@ -65,27 +86,3 @@ def carierdes(request):
 
 def newsDsc(request):
     return render(request, 'newsDsc.html')
-
-
-def send_email(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        try:
-            send_mail(
-                subject='Message from Volti Website',
-                message=f'Name: {name}\nEmail: {email}\nMessage: {message}',
-                from_email=email,
-                recipient_list=['your_email@example.com'],
-                fail_silently=False,
-            )
-            messages.success(request, 'Email successfully sent!')
-        except ValidationError as e:
-            messages.error(request, 'Email validation error occurred. Please try again.')
-        except Exception as e:
-            messages.error(request, 'An error occurred while sending the email. Please try again later.')
-        return HttpResponseRedirect(reverse('contactus'))
-
-    return HttpResponseRedirect(reverse('contactus'))
-

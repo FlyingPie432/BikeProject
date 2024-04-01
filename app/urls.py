@@ -17,6 +17,5 @@ urlpatterns = [
     path('carieers', views.carieers, name='carieers'),
     path('newsDsc', views.newsDsc, name="newsDsc"),
     path('carierdes', views.carierdes, name="carierdes"),
-    path('send-email/', views.send_email, name='send_email')
 
 ]

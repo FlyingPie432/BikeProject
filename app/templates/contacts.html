@@ -91,7 +91,7 @@
             </div>
             <div class="contacts">
                 <div class="form-container">
-                    <form class="form" method="post" action="{% url 'send_email' %}">
+                    <form class="form" method="post" action="{% url 'contactus' %}">
                         {% csrf_token %}
                         <div class="username">
                             <input type="text" name="name" placeholder="Enter your Name">
