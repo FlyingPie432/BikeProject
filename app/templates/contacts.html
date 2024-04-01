@@ -83,41 +83,35 @@
     </div>
 
     <section class="section">
-
         <div class="container containerr">
             <div class="map w-full h-[780px] mt-[124px]">
-                <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19875.91072207588!2d-0.3284739969374072!3d51.4858962957116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760d9557e7c74f%3A0xdcae9665ecdec357!2zQnJlbnRmb3JkLCBCaXJsyZnFn21pxZ8gS3JhbGzEsXE!5e0!3m2!1saz!2saz!4v1703155382032!5m2!1saz!2saz"
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19875.91072207588!2d-0.3284739969374072!3d51.4858962957116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760d9557e7c74f%3A0xdcae9665ecdec357!2zQnJlbnRmb3JkLCBCaXJsyZnFn21pxZ8gS3JhbGzEsXE!5e0!3m2!1saz!2saz!4v1703155382032!5m2!1saz!2saz"
                         width="500px" height="300px" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-
             <div class="contacts">
                 <div class="form-container">
                     <form class="form" method="post" action="{% url 'send_email' %}">
                         {% csrf_token %}
                         <div class="username">
-                            <input type="text" placeholder="Enter your Name">
+                            <input type="text" name="name" placeholder="Enter your Name">
                         </div>
                         <div class="useremail">
-                            <input type="email" placeholder="Enter your email" required>
+                            <input type="email" name="email" placeholder="Enter your email" required>
                         </div>
                         <div class="usermessage">
-                            <textarea placeholder="Enter your message" required></textarea>
+                            <textarea name="message" placeholder="Enter your message" required></textarea>
                         </div>
-                        <!-- <div class="usersubmit btn btn-primary"> -->
-                        <!-- <input type="submit" value="Contact Us"> -->
                         <button type="submit" class="btn btn-primary btn_q">
                             <span class="span">Contact Us</span>
                             <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                         </button>
-                        <!-- </div> -->
-
                     </form>
                 </div>
             </div>
-
+        </div>
     </section>
+
 
     <!--
 - #CONTACT
@@ -149,7 +143,8 @@
                         <div>
                             <h3 class="h6">E-mail Address</h3>
 
-                            <a href="mailto:voltiinfo@gmail.com" class="card-subtitle">{{ contact_information.email_address}}</a>
+                            <a href="mailto:voltiinfo@gmail.com"
+                               class="card-subtitle">{{ contact_information.email_address }}</a>
                         </div>
                     </div>
                 </li>
@@ -163,13 +158,20 @@
                         <div>
                             <h3 class="h6">Our Location</h3>
 
-                            <address class="card-subtitle">{{ contact_information.location}}</address>
+                            <address class="card-subtitle">{{ contact_information.location }}</address>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
     </section>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
 </main>
 
