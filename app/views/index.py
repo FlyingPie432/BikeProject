@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from app.models import Post, News
+from app.models import Post, News, Activities
 from django.urls import reverse
 
 
@@ -77,7 +77,8 @@ def news(request):
 
 
 def carieers(request):
-    return render(request, 'carieers.html')
+    all_positions = Activities.objects.all()
+    return render(request, 'carieers.html', {'all_positions': all_positions})
 
 
 def carierdes(request):
